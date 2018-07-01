@@ -12,14 +12,16 @@ $data = [
     'password'  => 'alejo123',
     'token'     => 'abcdefg',
     'email'     => 'alejolucangeli@gmail.com',
-    'level'     => 3
+    'level'     => 3,
+    'homepage'  => 'https://alejolucangeli.com'
 ];
 $rules = [
     'username' => [new Validations\NotEmpty, new Validations\Alphanumeric],
     'password' => [new Validations\NotEmpty, new Validations\Alphanumeric, new Validations\NotEquals(['username', $data['username']])],
     'token'    => [new Validations\Alpha, new Validations\Regex('/^[a-z]*$/')],
     'email'    => new Validations\Email,
-    'level'    => [new Validations\LessThan(5), new Validations\MoreThan(0), new Validations\Between(3,4)]
+    'level'    => [new Validations\LessThan(5), new Validations\MoreThan(0), new Validations\Between(3,4)],
+    'homepage' => new Validations\URL
 ];
 
 /* @var alejoluc\Validation\ValidationResult $result */
