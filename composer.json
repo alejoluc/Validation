@@ -1,0 +1,26 @@
+{
+  "name"        : "alejoluc/validation",
+  "description" : "PHP Validator",
+  "version"     : "0.1.0",
+
+  "keywords"  : ["validation", "validating", "filters", "filtering", "filter", "validations"],
+  "homepage"  : "https://github.com/alejoluc/Validation",
+  "license"   : "MIT",
+  "authors"   : [
+    {
+      "name"  : "Alejo Lucangeli",
+      "email" : "alejolucangeli@gmail.com",
+      "role"  : "Developer"
+    }
+  ],
+
+  "require" : {
+    "php": ">=5.6.0"
+  },
+
+  "autoload" : {
+    "psr-4": {
+        "alejoluc\\Validation\\": "src/"
+    }
+  }
+}
