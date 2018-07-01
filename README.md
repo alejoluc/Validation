@@ -85,3 +85,24 @@ if ($result->passes()) {
     }
 }
 ```
+
+## Changing the error messages language
+
+Built in languages are English and Spanish. It defaults to English. To add languages, create a file in the `lang` folder.
+
+Here's how to change in which language the errors will return. 
+
+```php
+<?php
+
+require __DIR__ . '/vendor/autoload.php';
+
+use alejoluc\Validation\Validations;
+use alejoluc\Validation\Validator;
+
+$validator = new Validator;
+$validator->setLanguage('es-es');
+
+//....
+
+```
