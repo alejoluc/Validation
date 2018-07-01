@@ -10,6 +10,6 @@ namespace alejoluc\Validation\Validations;
  */
 class Alphanumeric extends BaseValidation {
     public function validate($data) {
-        return preg_match("/^[A-Za-z0-9]*$/", $data) === 1;
+        return preg_match("/^[A-Za-z0-9.,]*$/", $data) === 1;
     }
 }

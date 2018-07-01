@@ -9,6 +9,6 @@ namespace alejoluc\Validation\Validations;
  */
 class AlphanumericUnderscore extends BaseValidation {
     public function validate($data) {
-        return preg_match("/^\w*$/", $data) === 1;
+        return preg_match("/^[\w.,]*$/", $data) === 1;
     }
 }
