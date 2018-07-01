@@ -1,7 +1,7 @@
 {
   "name"        : "alejoluc/validation",
   "description" : "PHP Validator",
-  "version"     : "0.2.0",
+  "version"     : "0.2.1",
 
   "keywords"  : ["validation", "validating", "filters", "filtering", "filter", "validations"],
   "homepage"  : "https://github.com/alejoluc/Validation",
