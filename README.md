@@ -31,12 +31,14 @@ $validator = new Validator;
 $data = [
     'name'  => 'Alejo Lucangeli',
     'mail'  => 'alejolucangeli@gmail.com',
-    'token' => 'adsjkgfuy43758vkj'
+    'token' => 'adsjkgfuy43758vkj',
+    'level' => 3
 ];
 $rules = [
     'name'  => new Validations\NotEmpty,
     'mail'  => [new Validations\NotEmpty, new Validations\Email],
-    'token' => new Validations\Regex('/^[a-z0-9]+$/')
+    'token' => new Validations\Regex('/^[a-z0-9]+$/'),
+    'level' => [new Validations\Numeric, new Validations\Between(0, 5)]
 ];
 
 $result = $validator->validate($data, $rules);
