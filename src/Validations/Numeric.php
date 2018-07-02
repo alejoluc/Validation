@@ -9,6 +9,6 @@ namespace alejoluc\Validation\Validations;
  */
 class Numeric extends BaseValidation {
     public function validate($data) {
-        return preg_match("/^[0-9.,]*$/", $data) === 1;
+        return is_numeric($data);
     }
 }
