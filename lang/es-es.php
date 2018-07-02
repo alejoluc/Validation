@@ -13,5 +13,6 @@ return [
     'MoreThan'      => 'El campo {field} tiene que ser mayor a {min}',
     'Between'       => 'El campo {field} tiene que estar entre {min} y {max}',
     'Regex'         => 'El campo {field} no contiene un valor válido',
+    'NotRegex'      => 'El campo {field} no contiene un valor válido',
     'URL'           => 'El campo {field} debe contener una URL válida'
 ];
