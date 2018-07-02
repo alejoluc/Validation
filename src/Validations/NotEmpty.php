@@ -7,6 +7,8 @@ class NotEmpty extends BaseValidation {
         if (is_string($data)) {
             $data = trim($data);
             return $data !== '';
+        } elseif (is_numeric($data)) {
+            return true;
         } else {
             return !empty($data);
         }
