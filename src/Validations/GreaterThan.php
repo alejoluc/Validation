@@ -2,7 +2,7 @@
 
 namespace alejoluc\Validation\Validations;
 
-class MoreThan extends BaseValidation {
+class GreaterThan extends BaseValidation {
     private $min;
     private $forceInt = false;
     public function __construct($min, $forceInteger = false) {

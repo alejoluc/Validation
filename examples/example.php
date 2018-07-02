@@ -20,7 +20,7 @@ $rules = [
     'password' => [new Validations\NotEmpty, new Validations\Alphanumeric, new Validations\NotEquals(['username', $data['username']])],
     'token'    => [new Validations\Alpha, new Validations\Regex('/^[a-z]*$/')],
     'email'    => new Validations\Email,
-    'level'    => [new Validations\LessThan(5), new Validations\MoreThan(0), new Validations\Between(3,4)],
+    'level'    => [new Validations\LessThan(5), new Validations\GreaterThan(0), new Validations\Between(3,4)],
     'homepage' => new Validations\URL
 ];
 

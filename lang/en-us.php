@@ -10,7 +10,7 @@ return [
     'Equals'        => 'The field {field} has to equal {compareWith}',
     'NotEquals'     => 'The field {field} has to be different than {compareWith}',
     'LessThan'      => 'The field {field} must be less than {max}',
-    'MoreThan'      => 'The field {field} must be more than {min}',
+    'GreaterThan'   => 'The field {field} must be more than {min}',
     'Between'       => 'The field {field} must be between {min} and {max}',
     'Regex'         => 'The field {field} does not contain a valid value',
     'NotRegex'      => 'The field {field} does not contain a valid value',

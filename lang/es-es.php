@@ -10,7 +10,7 @@ return [
     'Equals'        => 'El campo {field} tiene que ser igual a {compareWith}',
     'NotEquals'     => 'El campo {field} tiene que ser distinto a {compareWith}',
     'LessThan'      => 'El campo {field} tiene que ser menor a {max}',
-    'MoreThan'      => 'El campo {field} tiene que ser mayor a {min}',
+    'GreaterThan'   => 'El campo {field} tiene que ser mayor a {min}',
     'Between'       => 'El campo {field} tiene que estar entre {min} y {max}',
     'Regex'         => 'El campo {field} no contiene un valor válido',
     'NotRegex'      => 'El campo {field} no contiene un valor válido',
