@@ -16,6 +16,27 @@ Or write manually in `composer.json`:
 }
 ```
 
+## Validators
+
+```
+Alpha                   Only letter characters
+Alphanumeric            Only letters and numbers
+AlphanumericUnderscore  Only letters, numbers and underscore
+Email                   Valid E-mail address
+URL                     Valid URL
+Equals                  Strict comparison between two values
+NotEquals               Strict comparison between two values
+Between                 Numeric value between a minimum and a maximum
+GreaterThan
+LessThan
+InArray
+NotInArray
+NotEmpty                A value is required
+Regex
+NotRegex
+Numeric                 Checks wether a value is numeric (including strings containing numbers)
+```
+
 ## Usage
 
 ```php
