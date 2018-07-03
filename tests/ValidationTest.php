@@ -173,4 +173,132 @@ class ValidationTest extends TestCase {
         $this->assertArrayNotHasKey('age', $result->getErrors());
         $this->assertArrayNotHasKey('age_numeric', $result->getErrors());
     }
+
+    public function testNotEquals() {
+        $data = [
+            'name'        => 'Alejo Lucangeli',
+            'age'         => '0',
+            'age_numeric' => 0,
+            'email'       => '',
+            'studies'     => []
+        ];
+        $rules = [
+            'name'        => new Validations\NotEquals('Alejo Lucangel'),
+            'age'         => new Validations\NotEquals('0'),
+            'age_numeric' => new Validations\NotEquals(0),
+            'email'       => new Validations\NotEquals('alejolucangeli@gmail.com'),
+            'studies'     => new Validations\NotEquals('')
+        ];
+        $result = $this->validator->validate($data, $rules);
+        $this->assertFalse($result->passes());
+        $this->assertArrayHasKey('age', $result->getErrors());
+        $this->assertArrayHasKey('age_numeric', $result->getErrors());
+        $this->assertArrayNotHasKey('email', $result->getErrors());
+        $this->assertArrayNotHasKey('studies', $result->getErrors());
+    }
+
+    public function testRegex() {
+        $data = [
+            'user'  => 'alejo123',
+            'pass'  => 'a1234567',
+            'level' => 123
+        ];
+        $rules = [
+            'user'  => new Validations\Regex('/^[A-Za-z0-9]*$/'),
+            'pass'  => new Validations\Regex('/^[A-Za-z0-9]*$/'),
+            'level' => new Validations\Regex('/^[A-Za-z]*$/')
+        ];
+        $result = $this->validator->validate($data, $rules);
+        $this->assertFalse($result->passes());
+        $this->assertArrayNotHasKey('user', $result->getErrors());
+        $this->assertArrayNotHasKey('pass', $result->getErrors());
+        $this->assertArrayHasKey('level', $result->getErrors());
+    }
+
+    public function testNotRegex() {
+        $data = [
+            'user'  => 'alejo123',
+            'pass'  => 'a1234567',
+            'level' => 123
+        ];
+        $rules = [
+            'user'  => new Validations\NotRegex('/^[A-Za-z0-9]*$/'),
+            'pass'  => new Validations\NotRegex('/^[A-Za-z0-9]*$/'),
+            'level' => new Validations\NotRegex('/^[A-Za-z]*$/')
+        ];
+        $result = $this->validator->validate($data, $rules);
+        $this->assertFalse($result->passes());
+        $this->assertArrayHasKey('user', $result->getErrors());
+        $this->assertArrayHasKey('pass', $result->getErrors());
+        $this->assertArrayNotHasKey('level', $result->getErrors());
+    }
+
+    public function testNumeric() {
+        $data = [
+            'user'  => 'alejo',
+            'pass'  => '12345',
+            'level' => 4
+        ];
+        $rules = [
+            'user'  => new Validations\Numeric,
+            'pass'  => new Validations\Numeric,
+            'level' => new Validations\Numeric
+        ];
+        $result = $this->validator->validate($data, $rules);
+        $this->assertFalse($result->passes());
+        $this->assertArrayHasKey('user', $result->getErrors());
+        $this->assertArrayNotHasKey('pass', $result->getErrors());
+        $this->assertArrayNotHasKey('level', $result->getErrors());
+    }
+
+    public function testURL() {
+        $data = [
+            'url1' => 'http://alejolucangeli.com',
+            'url2' => 'http:alejolucangeli.com'
+        ];
+        $rules = [
+            'url1' => new Validations\URL,
+            'url2' => new Validations\URL
+        ];
+        $result = $this->validator->validate($data, $rules);
+        $this->assertFalse($result->passes());
+        $this->assertArrayHasKey('url2', $result->getErrors());
+        $this->assertArrayNotHasKey('url1', $result->getErrors());
+    }
+
+    public function testInArray() {
+        $data = [
+            'extension1' => 'rar',
+            'extension2' => 'bin',
+            'extension3' => 'jpeg'
+        ];
+        $rules = [
+            'extension1' => new Validations\InArray(['zip', 'rar', 'gz']),
+            'extension2' => new Validations\InArray(['exe', 'bin']),
+            'extension3' => new Validations\InArray(['gif', 'bmp']),
+        ];
+        $result = $this->validator->validate($data, $rules);
+        $this->assertFalse($result->passes());
+        $this->assertArrayHasKey('extension3', $result->getErrors());
+        $this->assertArrayNotHasKey('extension1', $result->getErrors());
+        $this->assertArrayNotHasKey('extension2', $result->getErrors());
+    }
+
+    public function testNotInArray() {
+        $data = [
+            'extension1' => 'rar',
+            'extension2' => 'bin',
+            'extension3' => 'jpeg'
+        ];
+        $rules = [
+            'extension1' => new Validations\NotInArray(['zip', 'rar', 'gz']),
+            'extension2' => new Validations\NotInArray(['exe', 'bin']),
+            'extension3' => new Validations\NotInArray(['gif', 'bmp']),
+        ];
+        $result = $this->validator->validate($data, $rules);
+        $this->assertFalse($result->passes());
+        $this->assertArrayHasKey('extension1', $result->getErrors());
+        $this->assertArrayHasKey('extension2', $result->getErrors());
+        $this->assertArrayNotHasKey('extension3', $result->getErrors());
+    }
 }

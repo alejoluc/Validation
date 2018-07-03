@@ -4,11 +4,20 @@ namespace alejoluc\Validation\Validations;
 
 /**
  * Class NotEquals
+ * Strict comparison between two values
  * @package alejoluc\Validation\Validations
  */
 class NotEquals extends BaseValidation {
     private $compareWith;
     private $compareField = null;
+
+    /**
+     * NotEquals constructor.
+     * If a single value is passed, it will be used in the error message
+     * If an array is passed, the first element will be the field name used in the error message, and the
+     * second element will be the compare value
+     * @param mixed $compareWith
+     */
     public function __construct($compareWith) {
         if (!is_array($compareWith)) {
             $this->compareWith = $compareWith;

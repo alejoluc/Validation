@@ -14,5 +14,7 @@ return [
     'Between'       => 'The field {field} must be between {min} and {max}',
     'Regex'         => 'The field {field} does not contain a valid value',
     'NotRegex'      => 'The field {field} does not contain a valid value',
-    'URL'           => 'The field {field} must be a valid URL'
+    'URL'           => 'The field {field} must be a valid URL',
+    'InArray'       => 'The field {field} does not contain a valid value',
+    'NotInArray'    => 'The field {field} does not contain a valid value'
 ];
