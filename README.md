@@ -34,7 +34,7 @@ NotInArray
 NotEmpty                A value is required
 Regex
 NotRegex
-Numeric                 Checks wether a value is numeric (including strings containing numbers)
+Numeric                 Checks whether a value is numeric (including strings containing numbers)
 ```
 
 ## Usage
