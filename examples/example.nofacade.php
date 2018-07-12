@@ -17,7 +17,8 @@ $rules = [
     'name'  => new Validations\NotEmpty,
     'mail'  => [new Validations\NotEmpty, new Validations\Email],
     'token' => new Validations\Regex('/^[a-z0-9]+$/'),
-    'age'   => new Validations\Numeric
+    'age'   => new Validations\Numeric,
+    'noexistent' => new Validations\NotEmpty
 ];
 
 $result = $validator->validate($data, $rules);

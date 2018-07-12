@@ -24,6 +24,9 @@ class Validator {
         $result = new ValidationResult();
         foreach ($rules as $ruleField => $ruleRule) {
             $break = false;
+            if (!isset($data[$ruleField])) {
+                $data[$ruleField] = null;
+            }
             if (is_array($ruleRule)) {
                 foreach ($ruleRule as $actualRule) {
                     if ($actualRule->validate($data[$ruleField]) === false) {
